@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters  } from "vuex";
 
 export default {
   methods: {
-    ...mapActions({ addJoke: "setCurrentJoke" })
-
+    ...mapActions({ addJoke: "setCurrentJoke" }),
+    // ...mapMutation({ onJoke: "onCurrentJoke" })
   },
   computed: {
     ...mapGetters({ joke: "getCurrentJoke" })

@@ -3,8 +3,6 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-// const url = "https://icanhazdadjoke.com";
-// const headers = { Accept: "application/json" };
 
 export default new Vuex.Store({
   state: {
@@ -16,6 +14,11 @@ export default new Vuex.Store({
     setCurrentJoke(state, payload) {
       state.currentJoke = payload;
       state.allJokes.push(payload);
+    },
+    onCurrentJoke(state, payload ) {
+      state.currentJoke = payload;
+      state.allJokes.push(payload);
+      console.log(state.currentJoke);
     }
   },
   actions: {
@@ -26,9 +29,10 @@ export default new Vuex.Store({
       const j = await joke.json();
       this.totalVuePackages = j[0].id;
       state.commit("setCurrentJoke", j[0].id);
-      console.log(this.totalVuePackages);
+      //console.log(this.totalVuePackages);
       setInterval(() => this.joke , 1000);
-    }
+    },
+
   },
   modules: {},
   getters: {
