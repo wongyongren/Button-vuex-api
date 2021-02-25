@@ -7,7 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentJoke: "This is a joke",
-    allJokes: []
+    allJokes: [] ,
+    updateJoke : ''
   },
   mutations: {
     //syncrous
@@ -16,9 +17,7 @@ export default new Vuex.Store({
       state.allJokes.push(payload);
     },
     onCurrentJoke(state, payload ) {
-      state.currentJoke = payload;
-      state.allJokes.push(payload);
-      console.log(state.currentJoke);
+      state.updateJoke = payload;
     }
   },
   actions: {
@@ -32,7 +31,9 @@ export default new Vuex.Store({
       //console.log(this.totalVuePackages);
       setInterval(() => this.joke , 1000);
     },
-
+    async onCurrentJoke(state){
+      state.commit("setCurrentJoke", 1);
+    }
   },
   modules: {},
   getters: {

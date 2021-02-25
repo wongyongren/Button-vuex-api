@@ -4,7 +4,7 @@
       <input
         type="checkbox"
         :checked="joke === 1 ? 'checked' : false"
-        @change="addJoke"
+        @change="onoffJoke"
       />
       <span class="toggler round"></span>
     </label>
@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import { mapActions, mapGetters  } from "vuex";
+import { mapGetters , mapActions } from "vuex";
 
 export default {
   methods: {
-    ...mapActions({ addJoke: "setCurrentJoke" }),
-    // ...mapMutation({ onJoke: "onCurrentJoke" })
+    // ...mapActions({ addJoke: "setCurrentJoke" }),
+    ...mapActions({ onoffJoke: "onCurrentJoke" })
   },
   computed: {
     ...mapGetters({ joke: "getCurrentJoke" })
