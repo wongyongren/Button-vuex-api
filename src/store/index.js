@@ -16,10 +16,9 @@ export default new Vuex.Store({
       state.currentJoke = payload;
       state.allJokes.push(payload);
     },
-    onCurrentJoke(state, payload ) {    
+    onCurrentJoke(state, payload ) {
       state.onoffStatus = payload;
       if (state.onoffStatus === 1) {
-        
         state.onoffStatus.push(payload);
       } else {
         state.onoffStatus.push(payload);

@@ -3,8 +3,8 @@
     <label class="toggle">
       <input
         type="checkbox"
-        :checked="joke === 1 ? 'checked' : false" 
-        @change="onoffJoke(joke , $payload)"
+        :checked="status === 1 ? 'checked' : false" 
+        @change="onoffJoke(onoffStatus , $payload)"
       />
       <span class="toggler round"></span>
     </label>
@@ -20,7 +20,7 @@ export default {
     ...mapMutations({ onoffJoke: "onCurrentJoke" })
   },
   computed: {
-    ...mapGetters({ joke: "getCurrentJoke" })
+    ...mapGetters({ status: "getCurrentJoke" })
   }
 };
 </script>
