@@ -1,5 +1,5 @@
 <template>
-  <div class="status" v-if="!(joke === 1)">
+  <div class="status" v-if="!(onoffcheck === 1)">
     <span class="text"> stop </span>
   </div>
   <div class="status" v-else>
@@ -9,15 +9,16 @@
 
 <script>
 
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
-  methods: {
-    ...mapActions({ addJoke: "setCurrentJoke" })
+  // methods: {
+  //   ...mapActions({ addJoke: "setCurrentJoke" })
 
-  },
+  // },
   computed: {
-    ...mapGetters({ joke: "getCurrentJoke" })
+    ...mapGetters({ joke: "getCurrentJoke" }),
+    ...mapGetters({ onoffcheck: "getOnOffStatus" })
   }
 };
 </script>
