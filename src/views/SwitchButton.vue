@@ -4,7 +4,7 @@
       <input
         type="checkbox"
         :checked="status === 1 ? 'checked' : false" 
-        @change="onoffStatus(onoffcheck)"
+        @change="onoffStatus(onoffcheck )"
       />
       <span class="toggler round"></span>
     </label>
