@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     currentJoke: "This is a joke",
     allJokes: [] ,
-    onoffStatus : 0
+    onoffStatus : ""
   },
   mutations: {
     //syncrous
@@ -16,12 +16,14 @@ export default new Vuex.Store({
       state.currentJoke = payload;
       state.allJokes.push(payload);
     },
-    onCurrentJoke(state, payload ) {
+    onCurrentStatus(state, payload ) {
       state.onoffStatus = payload;
       if (state.onoffStatus === 1) {
-        state.onoffStatus.push(payload);
+        state.onoffStatus = 0;
+        this.commit("setCurrentJoke", state.onoffStatus);
       } else {
-        state.onoffStatus.push(payload);
+        state.onoffStatus = 1;
+        this.commit("setCurrentJoke", state.onoffStatus);
       }
     }
   },
@@ -34,15 +36,16 @@ export default new Vuex.Store({
       this.totalVuePackages = j[0].id;
       state.commit("setCurrentJoke", j[0].id);
       console.log(this.totalVuePackages);
-      setInterval(() => this.joke , 1000);
+      //setInterval(() => this.joke , 1000);
     },
-  //   async onCurrentJoke(state){
-  //     state.commit("setCurrentJoke", 1);
-  //   }
+    //  async onCurrentStatus(state){
+    //    state.commit("onCurrentStatus");
+    //  }
    },
   modules: {},
   getters: {
     getCurrentJoke: state => state.currentJoke,
-    getAllJokes: state => state.allJokes
+    getAllJokes: state => state.allJokes,
+    getOnOffStatus: state => state.onoffStatus,
   }
 });

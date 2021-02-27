@@ -4,7 +4,7 @@
       <input
         type="checkbox"
         :checked="status === 1 ? 'checked' : false" 
-        @change="onoffJoke(onoffStatus , $payload)"
+        @change="onoffStatus(onoffcheck)"
       />
       <span class="toggler round"></span>
     </label>
@@ -17,10 +17,11 @@ import { mapGetters ,  mapMutations } from "vuex";
 export default {
   methods: {
     //...mapMutations({ addJoke: "setCurrentJoke" }),
-    ...mapMutations({ onoffJoke: "onCurrentJoke" })
+    ...mapMutations({ onoffStatus: "onCurrentStatus" })
   },
   computed: {
-    ...mapGetters({ status: "getCurrentJoke" })
+    ...mapGetters({ status: "getCurrentJoke" }),
+    ...mapGetters({ onoffcheck: "getOnOffStatus" })
   }
 };
 </script>
