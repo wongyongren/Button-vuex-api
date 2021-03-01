@@ -3,8 +3,8 @@
     <label class="toggle">
       <input
         type="checkbox"
-        :checked="status === 1 ? 'checked' : false" 
-        @change="onoffStatus(onoffcheck )"
+        v-model="checked"
+        @change="onoffStatus(checked)"
       />
       <span class="toggler round"></span>
     </label>
@@ -15,6 +15,11 @@
 import { mapGetters ,  mapMutations } from "vuex";
 
 export default {
+  data(){
+    return{
+      checked: ''
+    }
+  },
   methods: {
     //...mapMutations({ addJoke: "setCurrentJoke" }),
     ...mapMutations({ onoffStatus: "onCurrentStatus" })

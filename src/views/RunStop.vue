@@ -1,5 +1,5 @@
 <template>
-  <div class="status" v-if="!(onoffcheck === 1)">
+  <div class="status" v-if="!(checked === true)">
     <span class="text"> stop </span>
   </div>
   <div class="status" v-else>
@@ -18,7 +18,7 @@ export default {
   // },
   computed: {
     ...mapGetters({ joke: "getCurrentJoke" }),
-    ...mapGetters({ onoffcheck: "getOnOffStatus" })
+    ...mapGetters({ checked: "getOnOffStatus" })
   }
 };
 </script>

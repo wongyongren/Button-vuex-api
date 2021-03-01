@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     currentJoke: "This is a joke",
     allJokes: [] ,
-    onoffStatus : ""
+    checked : ''
   },
   mutations: {
     //syncrous
@@ -16,14 +16,18 @@ export default new Vuex.Store({
       state.currentJoke = payload;
       state.allJokes.push(payload);
     },
+    // onCurrentStatus(e){
+    //   console.log('e', e.target);
+    //   // this.$store.dispatch('updateSelectedTenants', e.target);
+    // }
     onCurrentStatus(state, payload ) {
-      state.onoffStatus = payload;
-      if (state.onoffStatus === 1) {
-        state.onoffStatus = 0;
-        this.commit("setCurrentJoke", state.onoffStatus);
+      state.checked = payload;
+      if (state.checked === true) {
+        state.checked = true;
+        this.commit("setCurrentJoke", state.checked);
       } else {
-        state.onoffStatus = 1;
-        this.commit("setCurrentJoke", state.onoffStatus);
+        state.checked = false;
+        this.commit("setCurrentJoke", state.checked);
       }
     }
   },
@@ -46,6 +50,6 @@ export default new Vuex.Store({
   getters: {
     getCurrentJoke: state => state.currentJoke,
     getAllJokes: state => state.allJokes,
-    getOnOffStatus: state => state.onoffStatus,
+    getOnOffStatus: state => state.checked,
   }
 });

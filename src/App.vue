@@ -5,15 +5,23 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions ,mapGetters } from "vuex";
 export default {
   methods: {
     ...mapActions(["setCurrentJoke"]),
   },
-  
+  computed: {
+    ...mapGetters(["getOnOffStatus"])
+  },  
   mounted() {
     this.setCurrentJoke();
-    setInterval(this.setCurrentJoke,30000)
+    
+    setInterval(this.setCurrentJoke,3000);
+    
+  },
+  updated() {
+    this.getOnOffStatus();
+    setInterval(this.getOnOffStatus,3000);
   }
 };
 </script>
