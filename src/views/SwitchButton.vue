@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapGetters ,  mapMutations } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   data(){
@@ -21,12 +21,7 @@ export default {
     }
   },
   methods: {
-    //...mapMutations({ addJoke: "setCurrentJoke" }),
     ...mapMutations({ onoffStatus: "onCurrentStatus" })
-  },
-  computed: {
-    ...mapGetters({ status: "getCurrentJoke" }),
-    ...mapGetters({ onoffcheck: "getOnOffStatus" })
   }
 };
 </script>

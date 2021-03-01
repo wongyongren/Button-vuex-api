@@ -16,10 +16,6 @@ export default new Vuex.Store({
       state.currentJoke = payload;
       state.allJokes.push(payload);
     },
-    // onCurrentStatus(e){
-    //   console.log('e', e.target);
-    //   // this.$store.dispatch('updateSelectedTenants', e.target);
-    // }
     onCurrentStatus(state, payload ) {
       state.checked = payload;
       if (state.checked === true) {

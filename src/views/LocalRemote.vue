@@ -1,5 +1,5 @@
 <template>
-  <div class="status" v-if="!(checked === true||checked===false)">
+  <div class="status" v-if="!(checked === true)">
     <span class="text">Local</span>
   </div>
   <div class="status" v-else>
