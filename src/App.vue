@@ -12,7 +12,7 @@ export default {
   },
   mounted() {
     this.setCurrentJoke();
-    setInterval(this.setCurrentJoke, 3000);
+    setInterval(this.setCurrentJoke, 30000);
   },
 };
 </script>

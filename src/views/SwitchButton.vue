@@ -1,7 +1,7 @@
 <template >
   <div class="toggle-wrapper">
     <label class="toggle" v-if="!(getget === 1)">
-      <input type="checkbox" v-model="checked" @change="onoffStatus(checked)" />
+      <input type="checkbox" v-model="checked" @change="postStatus(checked)" />
       <span class="toggler round"></span>
     </label>
     <label class="toggle" v-else>
@@ -9,7 +9,7 @@
         type="checkbox"
         v-model="checked"
         disabled
-        @change="onoffStatus(checked)"
+        @change="postStatus(checked)"
       />
       <span class="toggler round"></span>
     </label>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from "vuex";
+import { mapMutations, mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     ...mapMutations({ onoffStatus: "onCurrentStatus" }),
+    ...mapActions({ postStatus: "postCurrentId" }),
   },
   computed: {
     ...mapGetters({ getget: "getCurrentJoke" }),

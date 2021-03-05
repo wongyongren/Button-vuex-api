@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     currentJoke: "This is a joke",
     allJokes: [],
-    checked: ''
+    checked: '',
+    postId: null
   },
   mutations: {
     //syncrous
@@ -17,6 +18,16 @@ export default new Vuex.Store({
       state.allJokes.push(payload);
     },
     onCurrentStatus(state, payload) {
+      state.checked = payload;
+      if (state.checked === true) {
+        state.checked = true;
+        this.commit("setCurrentJoke", state.checked);
+      } else {
+        state.checked = false;
+        this.commit("setCurrentJoke", state.checked);
+      }
+    },
+    postCurrentId(state, payload){
       state.checked = payload;
       if (state.checked === true) {
         state.checked = true;
@@ -39,14 +50,17 @@ export default new Vuex.Store({
     },
     async postCurrentId() {
       // POST request using fetch with async/await
+      const id = true;
+      const datacheck= { id };
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: "Vue POST Request Example" })
+        body: JSON.stringify(datacheck)
       };
-      const response = await fetch("https://my-json-server.typicode.com/wongyongren/demo/modes/?id=1", requestOptions);
+      const response = await fetch("https://my-json-server.typicode.com/wongyongren/demo/modes", requestOptions);
       const data = await response.json();
       this.postId = data.id;
+      console.log(requestOptions.body)
     }
   },
   modules: {},
