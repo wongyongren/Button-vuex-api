@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 import { mapGetters } from "vuex";
 
 export default {
@@ -18,8 +17,8 @@ export default {
   // },
   computed: {
     ...mapGetters({ joke: "getCurrentJoke" }),
-    ...mapGetters({ checked: "getOnOffStatus" })
-  }
+    ...mapGetters({ checked: "getOnOffStatus" }),
+  },
 };
 </script>
 

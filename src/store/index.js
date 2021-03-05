@@ -7,8 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentJoke: "This is a joke",
-    allJokes: [] ,
-    checked : ''
+    allJokes: [],
+    checked: ''
   },
   mutations: {
     //syncrous
@@ -16,7 +16,7 @@ export default new Vuex.Store({
       state.currentJoke = payload;
       state.allJokes.push(payload);
     },
-    onCurrentStatus(state, payload ) {
+    onCurrentStatus(state, payload) {
       state.checked = payload;
       if (state.checked === true) {
         state.checked = true;
@@ -36,12 +36,19 @@ export default new Vuex.Store({
       this.totalVuePackages = j[0].id;
       state.commit("setCurrentJoke", j[0].id);
       console.log(this.totalVuePackages);
-      //setInterval(() => this.joke , 1000);
     },
-    //  async onCurrentStatus(state){
-    //    state.commit("onCurrentStatus");
-    //  }
-   },
+    async postCurrentId() {
+      // POST request using fetch with async/await
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: "Vue POST Request Example" })
+      };
+      const response = await fetch("https://my-json-server.typicode.com/wongyongren/demo/modes/?id=1", requestOptions);
+      const data = await response.json();
+      this.postId = data.id;
+    }
+  },
   modules: {},
   getters: {
     getCurrentJoke: state => state.currentJoke,

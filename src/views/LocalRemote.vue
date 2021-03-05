@@ -1,5 +1,5 @@
 <template>
-  <div class="status" v-if="(checked === 1)">
+  <div class="status" v-if="checked === 1">
     <span class="text">Local</span>
   </div>
   <div class="status" v-else>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import {  mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters({ checked: "getCurrentJoke" })
-  }
+    ...mapGetters({ checked: "getCurrentJoke" }),
+  },
 };
 </script>
 

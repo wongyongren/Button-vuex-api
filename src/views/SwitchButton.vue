@@ -1,11 +1,7 @@
 <template >
   <div class="toggle-wrapper">
     <label class="toggle" v-if="!(getget === 1)">
-      <input
-        type="checkbox"
-        v-model="checked"
-        @change="onoffStatus(checked)"
-      />
+      <input type="checkbox" v-model="checked" @change="onoffStatus(checked)" />
       <span class="toggler round"></span>
     </label>
     <label class="toggle" v-else>
@@ -21,20 +17,20 @@
 </template>
 
 <script>
-import { mapMutations , mapGetters } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
-  data(){
-    return{
-      checked: ''
-    }
+  data() {
+    return {
+      checked: "",
+    };
   },
   methods: {
     ...mapMutations({ onoffStatus: "onCurrentStatus" }),
   },
   computed: {
-    ...mapGetters({ getget: "getCurrentJoke" })
-  }
+    ...mapGetters({ getget: "getCurrentJoke" }),
+  },
 };
 </script>
 

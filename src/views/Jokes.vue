@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1 class="text-3xl p-12 font-extrabold">List</h1>
-    <h4 v-for="(joke,idx) in jokes" :key="idx">
-      <span>{{idx+1}}</span>
-      {{joke}}
+    <h4 v-for="(joke, idx) in jokes" :key="idx">
+      <span>{{ idx + 1 }}</span>
+      {{ joke }}
     </h4>
   </div>
 </template>
@@ -12,9 +12,9 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      jokes: "getAllJokes"
-    })
-  }
+      jokes: "getAllJokes",
+    }),
+  },
 };
 </script>
 <style scoped>

@@ -5,8 +5,6 @@
 </template>
 
 <script>
-
-
 import { mapActions } from "vuex";
 export default {
   methods: {
@@ -14,7 +12,7 @@ export default {
   },
   mounted() {
     this.setCurrentJoke();
-    setInterval(this.setCurrentJoke,3000);
+    setInterval(this.setCurrentJoke, 3000);
   },
 };
 </script>
