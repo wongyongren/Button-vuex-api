@@ -51,9 +51,8 @@ export default new Vuex.Store({
     async postCurrentId(state,payload) {
       // POST request using fetch with async/await
       state.checked = payload;
-
       const datacheck= { payload };
-      const requestOptions = {
+      const requestOptions = {  
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datacheck)
