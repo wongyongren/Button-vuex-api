@@ -9,7 +9,7 @@ export default new Vuex.Store({
     currentJoke: "This is a joke",
     allJokes: [],
     checked: '',
-    postId: null
+    postId: null,
   },
   mutations: {
     //syncrous
@@ -48,10 +48,11 @@ export default new Vuex.Store({
       state.commit("setCurrentJoke", j[0].id);
       console.log(this.totalVuePackages);
     },
-    async postCurrentId() {
+    async postCurrentId(state,payload) {
       // POST request using fetch with async/await
-      const id = true;
-      const datacheck= { id };
+      state.checked = payload;
+
+      const datacheck= { payload };
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
