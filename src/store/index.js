@@ -7,7 +7,6 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentJoke: "This is a joke",
-    allJokes: [],
     checked: '',
     postId: null,
   },
@@ -15,7 +14,6 @@ export default new Vuex.Store({
     //syncrous
     setCurrentJoke(state, payload) {
       state.currentJoke = payload;
-      state.allJokes.push(payload);
     },
     onCurrentStatus(state, payload) {
       state.checked = payload;
@@ -57,7 +55,7 @@ export default new Vuex.Store({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datacheck)
       };
-      const response = await fetch("http://localhost:3000/modes", requestOptions);
+      const response = await fetch("http://localhost:3000/modes/?id=1", requestOptions);
       const data = await response.json();
       this.postId = data.payload;
       console.log(state.aftercheck);
@@ -67,7 +65,6 @@ export default new Vuex.Store({
   modules: {},
   getters: {
     getCurrentJoke: state => state.currentJoke,
-    getAllJokes: state => state.allJokes,
     getOnOffStatus: state => state.checked,
   }
 });
