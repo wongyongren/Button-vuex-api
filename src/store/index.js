@@ -42,7 +42,7 @@ export default new Vuex.Store({
     //asyncronous
     async setCurrentJoke(state) {
       const random = Math.floor(Math.random() * 2);
-      const joke = await fetch(`https://my-json-server.typicode.com/wongyongren/demo/modes/?id=${random}`);
+      const joke = await fetch(`http://localhost:3000/modes/?id=${random}`);
       const j = await joke.json();
       this.totalVuePackages = j[0].id;
       state.commit("setCurrentJoke", j[0].id);
@@ -50,17 +50,18 @@ export default new Vuex.Store({
     },
     async postCurrentId(state,payload) {
       // POST request using fetch with async/await
-      state.checked = payload;
+      state.aftercheck = payload;
       const datacheck= { payload };
       const requestOptions = {  
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datacheck)
       };
-      const response = await fetch("https://my-json-server.typicode.com/wongyongren/demo/modes", requestOptions);
+      const response = await fetch("http://localhost:3000/modes", requestOptions);
       const data = await response.json();
-      this.postId = data.id;
-      console.log(requestOptions.body)
+      this.postId = data.payload;
+      console.log(state.aftercheck);
+      state.commit("postCurrentId", data.payload);
     }
   },
   modules: {},

@@ -16,8 +16,7 @@ export default {
 
   // },
   computed: {
-    ...mapGetters({ joke: "getCurrentJoke" }),
-    ...mapGetters({ checked: "getOnOffStatus" }),
+    ...mapGetters({ checked: "getOnOffStatus" })
   },
 };
 </script>

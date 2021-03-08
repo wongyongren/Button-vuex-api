@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapActions } from "vuex";
+import {  mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
@@ -26,7 +26,6 @@ export default {
     };
   },
   methods: {
-    ...mapMutations({ onoffStatus: "onCurrentStatus" }),
     ...mapActions({ postStatus: "postCurrentId" }),
   },
   computed: {
