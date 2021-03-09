@@ -8,11 +8,14 @@
 import { mapActions } from "vuex";
 export default {
   methods: {
-    ...mapActions(["setCurrentJoke"]),
+    ...mapActions(["getLastStatus"]),
+    ...mapActions(["setCurrentJoke"])
   },
   mounted() {
     this.setCurrentJoke();
-    setInterval(this.setCurrentJoke, 30000);
+    setInterval(this.setCurrentJoke, 4000);
+    this.getLastStatus();
+    setInterval(this.getLastStatus, 10000);
   },
 };
 </script>
