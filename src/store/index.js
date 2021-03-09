@@ -59,7 +59,7 @@ export default new Vuex.Store({
       var lastPosition = s.length -1;
       this.lastApiValue = s[0].id;
       state.commit("getLastStatus", s[lastPosition].payload);
-      console.log(s[lastPosition].payload);
+      console.log('store ' + s[lastPosition].payload);
       console.log(lastPosition);
     },
     async postCurrentId(state,payload) {
