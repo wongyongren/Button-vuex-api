@@ -13,9 +13,9 @@ export default {
   },
   mounted() {
     this.setCurrentJoke();
-    setInterval(this.setCurrentJoke, 4000);
+    setInterval(this.setCurrentJoke, 3000);
     this.getLastStatus();
-    setInterval(this.getLastStatus, 10000);
+    setInterval(this.getLastStatus, 3000);
   },
 };
 </script>

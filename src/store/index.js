@@ -60,7 +60,7 @@ export default new Vuex.Store({
       this.lastApiValue = s[0].id;
       state.commit("getLastStatus", s[lastPosition].payload);
       console.log('store status ' + s[lastPosition].payload);
-      console.log('store no ' + lastPosition);
+      // console.log('store no ' + lastPosition);
     },
     async postCurrentId(state,payload) {
       // POST request using fetch with async/await

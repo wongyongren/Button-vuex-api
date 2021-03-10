@@ -12,6 +12,7 @@
       <input
         type="checkbox"
         :checked="check === true"
+        disabled
         @change="postStatus($event.target.checked)"
       />
       <span class="toggler round"></span>
