@@ -1,15 +1,18 @@
 <template >
   <div class="toggle-wrapper">
     <label class="toggle" v-if="!(getget === 1)">
-      <input type="checkbox" v-model="checked" @change="postStatus(checked)" />
+      <input
+        type="checkbox"
+        :checked="check === true"
+        @change="postStatus($event.target.checked)"
+      />
       <span class="toggler round"></span>
     </label>
     <label class="toggle" v-else>
       <input
         type="checkbox"
-        v-model="checked"
-        disabled
-        @change="postStatus(checked)"
+        :checked="check === true"
+        @change="postStatus($event.target.checked)"
       />
       <span class="toggler round"></span>
     </label>
@@ -17,19 +20,15 @@
 </template>
 
 <script>
-import {  mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-  data() {
-    return {
-      checked: "",
-    };
-  },
   methods: {
     ...mapActions({ postStatus: "postCurrentId" }),
   },
   computed: {
     ...mapGetters({ getget: "getCurrentJoke" }),
+    ...mapGetters({ check: "getOnOffStatus" }),
   },
 };
 </script>

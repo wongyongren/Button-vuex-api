@@ -32,10 +32,10 @@ export default new Vuex.Store({
     postCurrentId(state, payload){
       state.checked = payload;
       if (state.checked === true) {
-        state.checked = true;
+        state.checked = false;
         this.commit("setCurrentJoke", state.checked);
       } else {
-        state.checked = false;
+        state.checked = true;
         this.commit("setCurrentJoke", state.checked);
       }
     }
@@ -59,8 +59,8 @@ export default new Vuex.Store({
       var lastPosition = s.length -1;
       this.lastApiValue = s[0].id;
       state.commit("getLastStatus", s[lastPosition].payload);
-      console.log('store ' + s[lastPosition].payload);
-      console.log(lastPosition);
+      console.log('store status ' + s[lastPosition].payload);
+      console.log('store no ' + lastPosition);
     },
     async postCurrentId(state,payload) {
       // POST request using fetch with async/await
