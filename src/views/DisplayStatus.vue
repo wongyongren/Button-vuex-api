@@ -3,14 +3,17 @@
     <div class="box">
       <h1>{{ joke }} Mode</h1>
       <div class="status">
-        <RedGreenCircle  />
-        <RunStop  />
+        <RedGreenCircle />
+        <RunStop />
       </div>
       <div class="status">
-        <RedGreenCircle  />
-        <LocalRemote  />
+        <RedGreenCircle />
+        <LocalRemote />
+        <div class="lds-ring" >
+          <div></div>
+        </div>
       </div>
-      <SwitchButton  />
+      <SwitchButton />
     </div>
   </div>
 </template>
@@ -28,12 +31,11 @@ export default {
     LocalRemote,
     RedGreenCircle,
     RunStop,
-    SwitchButton
+    SwitchButton,
   },
   computed: {
-    ...mapGetters({ joke: "getCurrentJoke" })
-
-  }
+    ...mapGetters({ joke: "getCurrentJoke" }),
+  },
 };
 </script>
 
@@ -94,5 +96,4 @@ export default {
     transform: rotate(360deg);
   }
 }
-
 </style>
