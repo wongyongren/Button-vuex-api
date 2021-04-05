@@ -11,6 +11,7 @@
         <LocalRemote />
         <div class="lds-ring" >
           <div></div>
+          
         </div>
       </div>
       <SwitchButton />
