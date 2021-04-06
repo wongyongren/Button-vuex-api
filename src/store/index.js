@@ -9,7 +9,8 @@ export default new Vuex.Store({
     currentJoke: "",
     checked: '',
     postId: null,
-    lastStatus:''
+    lastStatus: '',
+    loading: false
   },
   mutations: {
     //syncrous
@@ -18,6 +19,10 @@ export default new Vuex.Store({
     },
     getLastStatus(state, payload) {
       state.lastStatus = payload;
+    },
+    updateSwitch(state, payload) {
+      state.loading = payload;
+      
     },
     // onCurrentStatus(state, payload) {
     //   state.checked = payload;
@@ -29,7 +34,7 @@ export default new Vuex.Store({
     //     this.commit("setCurrentJoke", state.checked);
     //   }
     // },
-    postCurrentId(state, payload){
+    postCurrentId(state, payload) {
       state.checked = payload;
       if (state.checked === true) {
         state.checked = false;
@@ -53,20 +58,21 @@ export default new Vuex.Store({
     async getLastStatus(state) {
       //const random = Math.floor(Math.random() * 2);
       const status = await fetch(`http://localhost:3000/modes`);
-      
+
       const s = await status.json();
 
-      var lastPosition = s.length -1;
+      var lastPosition = s.length - 1;
       this.lastApiValue = s[0].id;
       state.commit("getLastStatus", s[lastPosition].payload);
       console.log('store status ' + s[lastPosition].payload);
+      state.commit("updateSwitch", false);
       // console.log('store no ' + lastPosition);
     },
-    async postCurrentId(state,payload) {
+    async postCurrentId(state, payload) {
       // POST request using fetch with async/await
       state.aftercheck = payload;
-      const datacheck= { payload };
-      const requestOptions = {  
+      const datacheck = { payload };
+      const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datacheck)
@@ -82,5 +88,6 @@ export default new Vuex.Store({
   getters: {
     getCurrentJoke: state => state.currentJoke,
     getOnOffStatus: state => state.lastStatus,
+    getSwitchStatus: state => state.loading
   }
 });

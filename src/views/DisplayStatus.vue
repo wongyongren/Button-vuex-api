@@ -9,12 +9,9 @@
       <div class="status">
         <RedGreenCircle />
         <LocalRemote />
-        <div class="lds-ring" >
-          <div></div>
-          
-        </div>
       </div>
       <SwitchButton />
+      <div class="lds-ring" v-if="loading"><div></div></div>
     </div>
   </div>
 </template>
@@ -28,6 +25,11 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "app",
+  data(){
+    return{
+      load : false
+    }
+  },
   components: {
     LocalRemote,
     RedGreenCircle,
@@ -36,7 +38,8 @@ export default {
   },
   computed: {
     ...mapGetters({ joke: "getCurrentJoke" }),
-  },
+    ...mapGetters({ loading: "getSwitchStatus" }),
+  }
 };
 </script>
 

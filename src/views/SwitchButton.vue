@@ -4,7 +4,7 @@
       <input
         type="checkbox"
         :checked="check === true"
-        @change="postStatus($event.target.checked)"
+        @change="postStatus($event.target.checked);updateStatus(true)"
       />
       <span class="toggler round"></span>
     </label>
@@ -21,11 +21,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
+//import DisplayStatus from "./DisplayStatus.vue";
 
 export default {
   methods: {
     ...mapActions({ postStatus: "postCurrentId" }),
+    ...mapMutations({ updateStatus: "updateSwitch" }),
   },
   computed: {
     ...mapGetters({ getget: "getCurrentJoke" }),
