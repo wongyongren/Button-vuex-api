@@ -11,7 +11,7 @@
         <LocalRemote />
       </div>
       <SwitchButton />
-      <div class="lds-ring" v-if="loading"><div></div></div>
+      <div class="lds-ring" v-if="loading"> Waiting For Signal <div></div><div></div><div></div><div></div></div>
     </div>
   </div>
 </template>
@@ -25,11 +25,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "app",
-  data(){
-    return{
-      load : false
-    }
-  },
   components: {
     LocalRemote,
     RedGreenCircle,
@@ -68,8 +63,9 @@ export default {
 .lds-ring {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 100px;
+  font-size: 15px;
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -82,6 +78,7 @@ export default {
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #fff transparent transparent transparent;
+  margin-left: 45px;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;

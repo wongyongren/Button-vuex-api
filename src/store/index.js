@@ -22,18 +22,7 @@ export default new Vuex.Store({
     },
     updateSwitch(state, payload) {
       state.loading = payload;
-      
     },
-    // onCurrentStatus(state, payload) {
-    //   state.checked = payload;
-    //   if (state.checked === true) {
-    //     state.checked = true;
-    //     this.commit("setCurrentJoke", state.checked);
-    //   } else {
-    //     state.checked = false;
-    //     this.commit("setCurrentJoke", state.checked);
-    //   }
-    // },
     postCurrentId(state, payload) {
       state.checked = payload;
       if (state.checked === true) {

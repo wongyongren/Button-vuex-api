@@ -1,10 +1,25 @@
 <template >
   <div class="toggle-wrapper">
-    <label class="toggle" v-if="!(getget === 1)">
+    <label class="toggle" v-if="loading">
       <input
         type="checkbox"
         :checked="check === true"
-        @change="postStatus($event.target.checked);updateStatus(true)"
+        disabled
+        @change="
+          postStatus($event.target.checked);
+          updateStatus(true);
+        "
+      />
+      <span class="toggler round"></span>
+    </label>
+    <label class="toggle" v-else-if="!(getget === 1)">
+      <input
+        type="checkbox"
+        :checked="check === true"
+        @change="
+          postStatus($event.target.checked);
+          updateStatus(true);
+        "
       />
       <span class="toggler round"></span>
     </label>
@@ -32,6 +47,7 @@ export default {
   computed: {
     ...mapGetters({ getget: "getCurrentJoke" }),
     ...mapGetters({ check: "getOnOffStatus" }),
+    ...mapGetters({ loading: "getSwitchStatus" }),
   },
 };
 </script>
